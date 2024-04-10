@@ -4,16 +4,8 @@ import { Recs } from "@/components/ui/wellcomePage/Recs";
 import { Sale } from "@/components/ui/wellcomePage/Sale";
 import { Sweets } from "@/components/ui/wellcomePage/Sweets";
 import { Feed } from "@/components/ui/wellcomePage/Feed";
-// const Slide = ({ color }: { color: string }) => {
-//   return <div className="w-full h-full"></div>;
-// };
-// function Slider() {
-//   return <Slide color={"red"} />;
-// }
 
-// export const Brands = () => {
-//   return <div className="container h-screen w-full"></div>;
-// };
+
 export default function Page() {
   return (
     <div className="h-fit mt-14 pt-4 pb-4">
