@@ -1,5 +1,3 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Spinner } from "@/components/ui/wellcomePage/Spinner";
 import { Category } from "@/components/ui/wellcomePage/Category";
 import { Recs } from "@/components/ui/wellcomePage/Recs";
@@ -13,7 +11,10 @@ import { Feed } from "@/components/ui/wellcomePage/Feed";
 //   return <Slide color={"red"} />;
 // }
 
-export const Wellcome = () => {
+// export const Brands = () => {
+//   return <div className="container h-screen w-full"></div>;
+// };
+export default function Page() {
   return (
     <div className="h-fit mt-14 pt-4 pb-4">
       <div className="container justify-center flex-col  h-[calc(100vh-9rem)]  text-black flex">
@@ -26,19 +27,6 @@ export const Wellcome = () => {
         <Sweets />
       </div>
       <Feed />
-    </div>
-  );
-};
-
-// export const Brands = () => {
-//   return <div className="container h-screen w-full"></div>;
-// };
-export default function Page() {
-  return (
-    <div className="container h-fit flex flex-col  justify-between align-middle">
-      <Header />
-      <Wellcome />
-      <Footer />
     </div>
   );
 }
