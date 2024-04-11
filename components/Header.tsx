@@ -21,8 +21,9 @@ export const Header = observer(() => {
           <li>
             <Contacts />
           </li>
-          <li>
+          <li className="flex">
             <ShoppingCart {...cartState}  />
+            <div className="pt-1">{cartState.itemsCount}</div>
           </li>
         </ul>
       </div>
