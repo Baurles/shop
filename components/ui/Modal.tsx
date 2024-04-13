@@ -2,6 +2,8 @@
 import { observer } from "mobx-react-lite";
 import { BuyButton } from "./buttons/BuyButton";
 import CartStore from "@/stores/cart-store";
+import { TiDelete } from "react-icons/ti";
+import { useEffect } from "react";
 
 interface ItemsType {
   name: string;
@@ -10,6 +12,14 @@ interface ItemsType {
   picture?: string;
   id: number;
 }
+const items = CartStore;
+
+// function handleDelete(item: ItemsType) {
+//   let getIndex = dummyArr.findIndex((e) => e.id === item.id);
+//   dummyArr.splice(getIndex, 1);
+//   // itemsDelete.setDeleteItem(item.id)
+//   console.log(dummyArr);
+// }
 
 const CartItem = (item: ItemsType) => {
   return (
@@ -42,31 +52,20 @@ const CartHead = () => {
   );
 };
 
-const dummyItem: ItemsType = {
-  name: "Крутой Поиск",
-  description: "Для дотки",
-  price: 100,
-  id: 1,
-};
-
-const dummyItem2: ItemsType = {
-  name: "Крутой Поиск",
-  description: "Для дотки",
-  price: 100,
-  id: 2,
-};
-
-const dummyArr = [dummyItem, dummyItem2];
-
-const CartList = ({ itemsArr }: { itemsArr: ItemsType[] }) => {
+const CartList = observer(({ itemsArr }: { itemsArr: ItemsType[] }) => {
   return (
     <div className="w-full mt-2 no-scrollbar overflow-scroll scroll-smooth  h-full p-4 text-black">
       {itemsArr.map((obj) => {
-        return <CartItem key={obj.id} {...obj} />;
+        return (
+          <div key={obj.id} className="flex">
+            <CartItem {...obj} />
+            <TiDelete onClick={() => items.setDeleteItem(obj.id)} size={30} />
+          </div>
+        );
       })}
     </div>
   );
-};
+});
 
 type Props = {
   setOpen: (state: boolean) => void;
@@ -76,14 +75,14 @@ type Props = {
 
 export const CartModal = ({ setOpen }: Props) => {
   return (
-    <div className=" container w-screen before:w-screen before:fixed before:h-screen before:bg-black before:content-[''] before::z-20 before:opacity-30 flex flex-col fixed h-screen z-20">
+    <div className=" container w-screen before:w-screen before:fixed before:h-screen before:bg-black before:content-[''] before::z-30 before:opacity-30 flex flex-col fixed h-screen z-30">
       <div
         onClick={() => setOpen(false)}
-        className="w-1/2 rounded-xl flex flex-col items-center justify-start pt-4 bg-white m-auto z-20 h-[calc((100vh-9rem)/1.5)] "
+        className="w-1/2 rounded-xl flex flex-col items-center justify-start pt-4 bg-white m-auto z-30 h-[calc((100vh-9rem)/1.5)] "
       >
         <CartHead />
-        <CartList itemsArr={dummyArr} />
-        <BuyButton />
+        <CartList itemsArr={items.itemsArr} />
+        <BuyButton {...items} />
       </div>
     </div>
   );

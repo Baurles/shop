@@ -1,9 +1,19 @@
 "use client";
 
-export const BuyButton = () => {
+import { observer } from "mobx-react-lite";
+
+type Props = {
+  setAddItem: () => void;
+  setDeleteItem?: (id: number) => void;
+};
+
+export const BuyButton = ({ setAddItem }: Props) => {
   return (
     <>
-      <button className="text-white w-full flex justify-center items-center rounded-b-xl bg-black h-20">
+      <button
+        onClick={() => setAddItem()}
+        className="text-white w-full flex justify-center items-center rounded-b-xl bg-black h-20"
+      >
         Купить
       </button>
     </>
