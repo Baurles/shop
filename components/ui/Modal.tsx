@@ -1,9 +1,8 @@
 "use client";
 import { observer } from "mobx-react-lite";
-import { BuyButton } from "./buttons/BuyButton";
 import CartStore from "@/stores/cart-store";
 import { TiDelete } from "react-icons/ti";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface ItemsType {
   name: string;
@@ -74,15 +73,36 @@ type Props = {
 // Доделать стейт для модалки
 
 export const CartModal = ({ setOpen }: Props) => {
+  let modalRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    let handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (modalRef.current !== null) {
+        if (!modalRef.current.contains(target)) {
+          setOpen(false);
+        }
+        modalRef.current.focus();
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   return (
-    <div className=" container w-screen before:w-screen before:fixed before:h-screen before:bg-black before:content-[''] before::z-30 before:opacity-30 flex flex-col fixed h-screen z-30">
+    <div className=" container w-screen before:w-screen before:fixed before:h-screen before:bg-black before:content-[''] before::z-40 before:opacity-30 flex flex-col fixed h-screen z-40">
       <div
-        onClick={() => setOpen(false)}
-        className="w-1/2 rounded-xl flex flex-col items-center justify-start pt-4 bg-white m-auto z-30 h-[calc((100vh-9rem)/1.5)] "
+        ref={modalRef}
+        className="w-1/2 rounded-xl flex flex-col items-center justify-start pt-4 bg-white m-auto z-40 h-[calc((100vh-9rem)/1.5)] "
       >
         <CartHead />
         <CartList itemsArr={items.itemsArr} />
-        <BuyButton {...items} />
+        <button className="text-white w-full flex justify-center items-center rounded-b-xl bg-black h-20">
+          Купить
+        </button>
       </div>
     </div>
   );

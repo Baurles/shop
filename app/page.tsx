@@ -5,11 +5,10 @@ import { Sale } from "@/components/ui/wellcomePage/Sale";
 import { Sweets } from "@/components/ui/wellcomePage/Sweets";
 import { Feed } from "@/components/ui/wellcomePage/Feed";
 
-
 export default function Page() {
   return (
-    <div className="h-fit mt-14 pt-4 pb-4">
-      <div className="container justify-center flex-col  h-[calc(100vh-9rem)]  text-black flex">
+    <div className="snap-y snap-mandatory h-fit mt-14 pt-4 pb-4">
+      <div className=" justify-center flex-col  h-[calc(100vh-9rem)]  text-black flex">
         <Spinner />
         <Category />
       </div>

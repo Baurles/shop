@@ -35,7 +35,7 @@ class CartStore {
   }
 
   setOpen = (state: boolean) => {
-    this.state = true;
+    this.state = state;
   };
   // 
   setAddItem = () => { 

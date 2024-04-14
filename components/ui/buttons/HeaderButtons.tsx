@@ -23,7 +23,7 @@ export const Search = () => {
     <>
       <input
         type="text"
-        className="bg-black m-auto rounded-lg text-white pl-2 "
+        className="bg-black m-auto rounded-lg focus:w-96 text-white pl-2 "
         placeholder="Поиск"
       />
     </>
