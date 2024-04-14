@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 
 const sliderOffset = sliderStore;
 
-export const Spinner = observer(() => {
+export const Spinner = observer(({ style,arrowStyle }: { arrowStyle:string,style: string }) => {
   let spinnerRef = useRef<HTMLInputElement>(null);
 
   const handleLeftArrowClick = () => {
@@ -44,11 +44,8 @@ export const Spinner = observer(() => {
   }, []);
 
   return (
-    <div
-      ref={spinnerRef}
-      className="bg-white flex w-full overflow-hidden h-1/2 rounded-2xl  justify-center items-center"
-    >
-      <div className="flex absolute container justify-between z-20">
+    <div ref={spinnerRef} className={style}>
+      <div className={arrowStyle}>
         <FaChevronLeft size={20} onClick={handleLeftArrowClick} />
         <FaChevronRight size={20} onClick={handleRightArrowClick} />
       </div>

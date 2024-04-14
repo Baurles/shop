@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 export const Sale = () => {
   const firstText = useRef<HTMLInputElement>(null);
-
+// Доделать
   useEffect(() => {
     const style = firstText.current && getComputedStyle(firstText.current);
 

@@ -13,13 +13,6 @@ interface ItemsType {
 }
 const items = CartStore;
 
-// function handleDelete(item: ItemsType) {
-//   let getIndex = dummyArr.findIndex((e) => e.id === item.id);
-//   dummyArr.splice(getIndex, 1);
-//   // itemsDelete.setDeleteItem(item.id)
-//   console.log(dummyArr);
-// }
-
 const CartItem = (item: ItemsType) => {
   return (
     <div className="flex mb-10 w-full h-fit">
@@ -69,8 +62,6 @@ const CartList = observer(({ itemsArr }: { itemsArr: ItemsType[] }) => {
 type Props = {
   setOpen: (state: boolean) => void;
 };
-
-// Доделать стейт для модалки
 
 export const CartModal = ({ setOpen }: Props) => {
   let modalRef = useRef<HTMLInputElement>(null);

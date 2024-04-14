@@ -9,7 +9,12 @@ export default function Page() {
   return (
     <div className="snap-y snap-mandatory h-fit mt-14 pt-4 pb-4">
       <div className=" justify-center flex-col  h-[calc(100vh-9rem)]  text-black flex">
-        <Spinner />
+        <Spinner
+          arrowStyle={"flex absolute container justify-between z-20"}
+          style={
+            "bg-white flex w-full overflow-hidden h-1/2 rounded-2xl  justify-center items-center"
+          }
+        />
         <Category />
       </div>
       <Recs />
