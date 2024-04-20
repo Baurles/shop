@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { BuyButtonProvider } from "@/components/providers/BuyProvider";
 export const ItemInfo = () => {
   return (
@@ -36,8 +36,9 @@ export const ItemInfo = () => {
           officia veritatis. Explicabo quidem quaerat quis?
         </span>
       </div>
-      <span className="text-4xl self-center ">100$</span>
+      <span className="text-4xl pt-2 pb-2 self-center ">100$</span>
       <BuyButtonProvider />
     </div>
   );
 };
+

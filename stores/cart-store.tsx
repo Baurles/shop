@@ -2,13 +2,6 @@
 
 import { makeAutoObservable } from "mobx";
 
-interface ItemsType {
-  name: string;
-  description: string;
-  price: number;
-  picture?: string;
-  id: number;
-}
 class CartStore {
   state = false;
 
@@ -37,8 +30,8 @@ class CartStore {
   setOpen = (state: boolean) => {
     this.state = state;
   };
-  // 
-  setAddItem = () => { 
+  //
+  setAddItem = () => {
     this.itemsArr.push({
       name: "adfR",
       description: "adf",
@@ -47,7 +40,7 @@ class CartStore {
     });
     this.itemsCount = this.itemsCount + 1;
   };
-  // 
+  //
   setDeleteItem = (id: number) => {
     this.itemsArr = this.itemsArr.filter((e) => e.id !== id);
     this.itemsCount = this.itemsCount - 1;

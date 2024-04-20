@@ -11,7 +11,7 @@ export const Header = () => {
           SHOPSTER
         </h1>
       </Link>
-      <div className="flex justify-center gap-20 align-middle pr-4 text-black">
+      <div className="flex justify-center gap-20 aligne iddle pr-4 text-black">
         <Search />
         <ul className="flex justify-center align-middle m-auto gap-10">
           <li>
