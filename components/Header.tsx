@@ -1,6 +1,6 @@
 import { ModalProvider } from "./providers/ModalProvider";
-import { Contacts, Search } from "./ui/buttons/HeaderButtons";
-
+import { Search } from "./ui/buttons/HeaderButtons";
+import { LoginButtonProvider } from "./providers/LoginProvider";
 import Link from "next/link";
 
 export const Header = () => {
@@ -14,9 +14,7 @@ export const Header = () => {
       <div className="flex justify-center gap-20 aligne iddle pr-4 text-black">
         <Search />
         <ul className="flex justify-center align-middle m-auto gap-10">
-          <li>
-            <Contacts />
-          </li>
+          <LoginButtonProvider />
           <ModalProvider />
         </ul>
       </div>

@@ -9,7 +9,7 @@ const cartState = CartStore;
 export const ModalProvider = observer(() => {
   return (
     <>
-      <li className="flex">
+      <li className="flex cursor-pointer">
         <ShoppingCart {...cartState} />
         <div className="pt-1">{cartState.itemsCount}</div>
       </li>
